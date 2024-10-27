@@ -12,4 +12,4 @@ if len(sys.argv) != 2:
 # Entrypoint
 if __name__ == "__main__":
     load_dir(expand_path(sys.argv[1]))
-    print(" |--| {} has been edited  |--| ".format(sys.argv[1]))
+    print(" [*] {} has been edited  [*] ".format(sys.argv[1]))

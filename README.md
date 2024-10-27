@@ -6,7 +6,6 @@ A simple tool for the domain specific editing of an XML document
 
 ## Requirements
 
-|----------|---------|
 | Software | Version |
 |----------|---------|
 | Python   |`3.10.14`|
