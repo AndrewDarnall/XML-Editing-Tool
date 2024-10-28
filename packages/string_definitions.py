@@ -1,52 +1,51 @@
-# The file contains the string definitions to be changed
+"""The file contains the string definitions to be changed."""
 
-ADD_STRING_1 = """
-                <ReferenceCoded>
-						<ReferenceTypeCoded>Other</ReferenceTypeCoded>
-						<ReferenceTypeCodedOther>Version</ReferenceTypeCodedOther>
-						<PrimaryReference>
-							<Reference>
-								<RefNum>1</RefNum>
-							</Reference>
-						</PrimaryReference>
-					</ReferenceCoded>
+ADD_STRING_1 = (
+    "<ReferenceCoded>\n"
+    "    <ReferenceTypeCoded>Other</ReferenceTypeCoded>\n"
+    "    <ReferenceTypeCodedOther>Version</ReferenceTypeCodedOther>\n"
+    "    <PrimaryReference>\n"
+    "        <Reference>\n"
+    "            <RefNum>1</RefNum>\n"
+    "        </Reference>\n"
+    "    </PrimaryReference>\n"
+    "</ReferenceCoded>"
+)
 
-"""
+ADD_STRING_2 = (
+    "<ReferenceCoded>\n"
+    "    <ReferenceTypeCoded>Other</ReferenceTypeCoded>\n"
+    "    <ReferenceTypeCodedOther>Percent</ReferenceTypeCodedOther>\n"
+    "    <PrimaryReference>\n"
+    "        <Reference>\n"
+    "            <RefNum>100</RefNum>\n"
+    "        </Reference>\n"
+    "    </PrimaryReference>\n"
+    "</ReferenceCoded>"
+)
 
-ADD_STRING_2 = """
-					<ReferenceCoded>
-						<ReferenceTypeCoded>Other</ReferenceTypeCoded>
-						<ReferenceTypeCodedOther>Percent</ReferenceTypeCodedOther>
-						<PrimaryReference>
-							<Reference>
-								<RefNum>100</RefNum>
-							</Reference>
-						</PrimaryReference>
-					</ReferenceCoded>
-
-"""
-
-EDIT_STRING = """
-                <Party>
-                    <PartyID>
-                        <Identifier>
-                            <Agency>
-                                <AgencyCoded>Other</AgencyCoded>
-                                <AgencyCodedOther>GruppoTelecomItalia</AgencyCodedOther>
-                            </Agency>
-                            <Ident>A890</Ident>
-                        </Identifier>
-                    </PartyID>
-                    <NameAddress>
-                        <Name1>FiberCop S.p.A.</Name1>
-                        <Street>VIA GAETANO NEGRI 1</Street>
-                        <PostalCode>20123</PostalCode>
-                        <City>MILANO</City>
-                        <Region>
-                            <RegionCoded>MI</RegionCoded>
-                        </Region>
-                        <Country>
-                            <CountryCoded>IT</CountryCoded>
-                        </Country>
-                    </NameAddress>
-                </Party>"""
+EDIT_STRING = (
+    "<Party>\n"
+    "    <PartyID>\n"
+    "        <Identifier>\n"
+    "            <Agency>\n"
+    "                <AgencyCoded>Other</AgencyCoded>\n"
+    "                <AgencyCodedOther>GruppoTelecomItalia</AgencyCodedOther>\n"
+    "            </Agency>\n"
+    "            <Ident>A890</Ident>\n"
+    "        </Identifier>\n"
+    "    </PartyID>\n"
+    "    <NameAddress>\n"
+    "        <Name1>FiberCop S.p.A.</Name1>\n"
+    "        <Street>VIA GAETANO NEGRI 1</Street>\n"
+    "        <PostalCode>20123</PostalCode>\n"
+    "        <City>MILANO</City>\n"
+    "        <Region>\n"
+    "            <RegionCoded>MI</RegionCoded>\n"
+    "        </Region>\n"
+    "        <Country>\n"
+    "            <CountryCoded>IT</CountryCoded>\n"
+    "        </Country>\n"
+    "    </NameAddress>\n"
+    "</Party>"
+)

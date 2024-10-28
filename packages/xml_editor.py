@@ -1,10 +1,13 @@
-import xml.etree.ElementTree as ET
-
-from packages.string_definitions import ADD_STRING_1, ADD_STRING_2, EDIT_STRING
+""" Contains the main functions for the XML-Editor tool """
 
 from sys import argv
 from os.path import abspath, exit
 from typing import Tuple
+import xml.etree.ElementTree as ET
+
+
+from packages.string_definitions import ADD_STRING_1, ADD_STRING_2, EDIT_STRING
+
 
 
 # Dictionary of target nodes and XML replacements
@@ -14,40 +17,37 @@ replacements = {
 }
 
 
-"""
-    expand_path: Expands the input PATH to an Absolute PATH
-    @param rel_path: relative PATH
-
-"""
-
 
 def expand_path(rel_path: str) -> str:
+    """
+        expand_path: Expands the input PATH to an Absolute PATH
+        @param rel_path: relative PATH
+    """
     return abspath(rel_path)
 
 
-"""
-    load_xml_file: Loads the XML file and parses it into a Tree structure
-    @param target_file: the input relative path of the target-directory
-"""
-
 
 def load_xml_file(target_file: str) -> Tuple[ET.Element, ET.ElementTree]:
+    """
+        load_xml_file: Loads the XML file and parses it into a Tree structure
+        @param target_file: the input relative path of the target-directory
+    """
     abs_path = expand_path(target_file)
     tree = ET.parse(abs_path)
     root = tree.getroot()
     return root, tree
 
 
-"""
-    tree_visit: Performs a recursive visit of the XML element tree, searching for the target nodes
-                on which to perform the appropriate changes
-
-    @param node: the node to be visited
-    @param replacements: the replacement dictionary
-"""
 
 
 def tree_visit(node: ET.Element, replacements: dict) -> None:
+    """
+        tree_visit: Performs a recursive visit of the XML element tree, searching for the target nodes
+                    on which to perform the appropriate changes
+
+        @param node: the node to be visited
+        @param replacements: the replacement dictionary
+    """
 
     for child in node:
 
@@ -80,21 +80,22 @@ def tree_visit(node: ET.Element, replacements: dict) -> None:
         tree_visit(child, replacements)
 
 
-"""
-    prettify_xml: Prettify the XML file (fix indentation and spacing)
-    @param root: root of the XML file
-"""
+
 
 
 def prettify_xml(root: ET.Element) -> None:
     """
-    indent: Inner function that performs the actual recursive indentation
-    @param elem: Visited node
-    @param level: current tree level (recusion depth)
+        prettify_xml: Prettify the XML file (fix indentation and spacing)
+        @param root: root of the XML file
     """
 
-    def indent(elem, level=0) -> None:
 
+    def indent(elem, level=0) -> None:
+        """
+            indent: Inner function that performs the actual recursive indentation
+            @param elem: Visited node
+            @param level: current tree level (recusion depth)
+        """
         # Indentation accumulator
         i = "\n" + "    " * level
 
