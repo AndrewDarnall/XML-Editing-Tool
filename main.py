@@ -1,7 +1,8 @@
 """ Driver code for the XML-Editor-Tool  """
 
 # STL imports
-from sys import argv, exit
+from sys import argv
+from sys import exit as EXIT_FAILURE
 
 # Third party imports
 
@@ -11,7 +12,7 @@ from packages.xml_editor import expand_path
 
 if len(argv) != 2:
     print(f"usage:\t{argv[1]}\t<INPUT-DIR-PATH")
-    exit(-1)
+    EXIT_FAILURE(-1)
 
 
 # Entrypoint

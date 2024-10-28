@@ -27,7 +27,7 @@ jobs:
       - name: Run Pylint
         run: |
           pylint main.py packages/
-        continue-on-error: true
+        continue-on-error: false
 
       - name: Run Flake8
         run: |

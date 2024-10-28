@@ -1,6 +1,7 @@
 """ Contains the main functions for the XML-Editor tool """
 
-from os.path import abspath, exit
+from os.path import abspath
+from sys import exit as EXIT_FAILURE
 from typing import Tuple
 import xml.etree.ElementTree as ET
 
@@ -48,12 +49,13 @@ def tree_visit(node: ET.Element, replacements: dict) -> None:
         if child.tag == replacements["addition"][0]:
 
             try:
-                # Add the two nodes separaterly due to how XML requires the structure of the portion of code to be added
+                # Add the two nodes separaterly due to how XML requires
+                # the structure of the portion of code to be added
                 new_node_1 = ET.fromstring(replacements["addition"][1][0])
                 new_node_2 = ET.fromstring(replacements["addition"][1][1])
             except ET.ParseError:
                 print(" --> Failed to parse the string into xml node: addition")
-                exit(-1)
+                EXIT_FAILURE(-1)
 
             child.append(new_node_1)
             child.append(new_node_2)
@@ -66,7 +68,7 @@ def tree_visit(node: ET.Element, replacements: dict) -> None:
                 new_node = ET.fromstring(replacements["modification"][1])
             except ET.ParseError:
                 print(" --> Failed to parse the string into xml node: modification")
-                exit(-1)
+                EXIT_FAILURE(-1)
 
             child.append(new_node)
 
