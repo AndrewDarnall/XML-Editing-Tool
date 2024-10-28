@@ -1,5 +1,11 @@
 # XML Editor Tool
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Build Status](https://github.com/AndrewDarnall/XML-Editing-Tool/actions/workflows/lint.yml/badge.svg)
+
+
+---
+
 A simple tool for the domain specific editing of an XML document
 
 ---
