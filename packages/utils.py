@@ -3,7 +3,8 @@
 from os import listdir
 import xml.etree.ElementTree as ET
 
-from packages.xml_editor import tree_visit, prettify_xml, load_xml_file, replacements
+from packages.xml_editor import tree_visit, prettify_xml, load_xml_file
+from packages.xml_editor import replacements_dict
 
 
 def load_dir(input_dir: str) -> None:
@@ -22,7 +23,7 @@ def load_dir(input_dir: str) -> None:
             continue
         # Recursively visit the tree whilst searching for the
         # target node and make the required midifications
-        tree_visit(root, replacements)
+        tree_visit(root, replacements_dict)
         # Pretty-format the xml file to respect
         # indentation (not required but usually appreciated)
         prettify_xml(root)
