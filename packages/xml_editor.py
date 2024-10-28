@@ -12,7 +12,7 @@ from packages.str_and_type_definitions import ReplacementsDict
 
 
 # Dictionary of target nodes and XML replacements
-replacements: ReplacementsDict = {
+replacements_dict: ReplacementsDict = {
     "addition": ("ListOfReferenceCoded", (ADD_STRING_1, ADD_STRING_2)),
     "modification": ("BuyerParty", EDIT_STRING),
 }

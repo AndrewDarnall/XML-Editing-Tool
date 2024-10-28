@@ -1,9 +1,9 @@
 """ The file contains string and type definitions used in the xml_editor.py file """
 
-from typing import Tuple, Dict, Union
+from typing import Tuple, Dict
 
 # Replacements dict type alias
-ReplacementsDict = Dict[str, Tuple[str, Union[str, Tuple[str, str]]]]
+ReplacementsDict = Dict[str, Tuple[str, Tuple[str, str]]]
 
 ADD_STRING_1 = (
     "<ReferenceCoded>\n"
