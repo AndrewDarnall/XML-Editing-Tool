@@ -32,4 +32,4 @@ jobs:
       - name: Run Flake8
         run: |
           flake8 main.py packages/
-        continue-on-error: true
+        continue-on-error: false
