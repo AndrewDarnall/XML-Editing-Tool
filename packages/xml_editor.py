@@ -6,11 +6,13 @@ from typing import Tuple
 import xml.etree.ElementTree as ET
 
 
-from packages.string_definitions import ADD_STRING_1, ADD_STRING_2, EDIT_STRING
+from packages.str_and_type_definitions import ADD_STRING_1, ADD_STRING_2, EDIT_STRING
+from packages.str_and_type_definitions import ReplacementsDict
+
 
 
 # Dictionary of target nodes and XML replacements
-replacements = {
+replacements: ReplacementsDict = {
     "addition": ("ListOfReferenceCoded", (ADD_STRING_1, ADD_STRING_2)),
     "modification": ("BuyerParty", EDIT_STRING),
 }
@@ -35,7 +37,7 @@ def load_xml_file(target_file: str) -> Tuple[ET.Element, ET.ElementTree]:
     return root, tree
 
 
-def tree_visit(node: ET.Element, replacements: dict) -> None:
+def tree_visit(node: ET.Element, replacements: ReplacementsDict) -> None:
     """
     tree_visit: Performs a recursive visit of the XML element tree, searching for the target nodes
                 on which to perform the appropriate changes

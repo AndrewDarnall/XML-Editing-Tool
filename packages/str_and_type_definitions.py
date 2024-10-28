@@ -1,4 +1,9 @@
-"""The file contains the string definitions to be changed."""
+""" The file contains string and type definitions used in the xml_editor.py file """
+
+from typing import Tuple, Dict, Union
+
+# Replacements dict type alias
+ReplacementsDict = Dict[str, Tuple[str, Union[str, Tuple[str, str]]]]
 
 ADD_STRING_1 = (
     "<ReferenceCoded>\n"
