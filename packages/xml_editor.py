@@ -1,36 +1,58 @@
 import xml.etree.ElementTree as ET
 
-from packages.string_definitions import add_string_1, add_string_2, edit_string
+from packages.string_definitions import ADD_STRING_1, ADD_STRING_2, EDIT_STRING
 
-import sys
-import os
+from sys import argv
+from os.path import abspath, exit
+from typing import Tuple
 
 
 # Dictionary of target nodes and XML replacements
 replacements = {
-    "addition" : ("ListOfReferenceCoded", (add_string_1, add_string_2)),
-    "modification" : ("BuyerParty", edit_string)
+    "addition": ("ListOfReferenceCoded", (ADD_STRING_1, ADD_STRING_2)),
+    "modification": ("BuyerParty", EDIT_STRING),
 }
 
 
+"""
+    expand_path: Expands the input PATH to an Absolute PATH
+    @param rel_path: relative PATH
+
+"""
 
 
-# Expands the input PATH to an Absolute PATH
-def expand_path(rel_path):
-    return os.path.abspath(rel_path)
+def expand_path(rel_path: str) -> str:
+    return abspath(rel_path)
 
-# Loads the XML file and parses it into a Tree structure
-def load_xml_file(target_file):
+
+"""
+    load_xml_file: Loads the XML file and parses it into a Tree structure
+    @param target_file: the input relative path of the target-directory
+"""
+
+
+def load_xml_file(target_file: str) -> Tuple[ET.Element, ET.ElementTree]:
     abs_path = expand_path(target_file)
     tree = ET.parse(abs_path)
     root = tree.getroot()
     return root, tree
 
 
-# Recursively visit the Tree
-def tree_visit(node, replacements):
+"""
+    tree_visit: Performs a recursive visit of the XML element tree, searching for the target nodes
+                on which to perform the appropriate changes
+
+    @param node: the node to be visited
+    @param replacements: the replacement dictionary
+"""
+
+
+def tree_visit(node: ET.Element, replacements: dict) -> None:
+
     for child in node:
+
         if child.tag == replacements["addition"][0]:
+
             try:
                 # Add the two nodes separaterly due to how XML requires the structure of the portion of code to be added
                 new_node_1 = ET.fromstring(replacements["addition"][1][0])
@@ -38,34 +60,57 @@ def tree_visit(node, replacements):
             except Exception as e:
                 print(" --> Failed to parse the string into xml node: addition")
                 print(e)
-                sys.exit(-1)
+                exit(-1)
+
             child.append(new_node_1)
             child.append(new_node_2)
+
         if child.tag == replacements["modification"][0]:
+
             child.clear()
+
             try:
                 new_node = ET.fromstring(replacements["modification"][1])
             except Exception as e:
                 print(" --> Failed to parse the string into xml node: modification")
-                sys.exit(-1)
+                exit(-1)
+
             child.append(new_node)
+
         tree_visit(child, replacements)
 
-# Prettify the XML file (fix indentation and spacing)
-def prettify_xml(root):
 
-    def indent(elem, level=0):
-        """Recursively indent XML elements for pretty-printing."""
+"""
+    prettify_xml: Prettify the XML file (fix indentation and spacing)
+    @param root: root of the XML file
+"""
+
+
+def prettify_xml(root: ET.Element) -> None:
+    """
+    indent: Inner function that performs the actual recursive indentation
+    @param elem: Visited node
+    @param level: current tree level (recusion depth)
+    """
+
+    def indent(elem, level=0) -> None:
+
+        # Indentation accumulator
         i = "\n" + "    " * level
+
         if len(elem):
+
             if not elem.text or not elem.text.strip():
                 elem.text = i + "    "
+
             for child in elem:
                 indent(child, level + 1)
+
             if not elem.tail or not elem.tail.strip():
                 elem.tail = i
         else:
+
             if level and (not elem.tail or not elem.tail.strip()):
                 elem.tail = i
-    # Apply indentation to the entire tree
+
     indent(root)

@@ -20,12 +20,10 @@ A simple tool for the domain specific editing of an XML document
 git clone https://github.com/AndrewDarnall/XML-Editing-Tool.git
 ```
 
-2) Change into the repo's directory and create a target directory and change into the directory
+2) Change into the repo's `target-dir` directory
 
 ```bash
-cd XML-Editing-Tool
-mkdir target-dir
-cd target-dir
+cd XML-Editing-Tool/target-dir
 ```
 
 3) Move all the target `.xml` files into the `target-dir` directory

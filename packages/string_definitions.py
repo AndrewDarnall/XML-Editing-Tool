@@ -1,6 +1,6 @@
 # The file contains the string definitions to be changed
 
-add_string_1 = """
+ADD_STRING_1 = """
                 <ReferenceCoded>
 						<ReferenceTypeCoded>Other</ReferenceTypeCoded>
 						<ReferenceTypeCodedOther>Version</ReferenceTypeCodedOther>
@@ -13,7 +13,7 @@ add_string_1 = """
 
 """
 
-add_string_2 = """
+ADD_STRING_2 = """
 					<ReferenceCoded>
 						<ReferenceTypeCoded>Other</ReferenceTypeCoded>
 						<ReferenceTypeCodedOther>Percent</ReferenceTypeCodedOther>
@@ -26,7 +26,7 @@ add_string_2 = """
 
 """
 
-edit_string = """
+EDIT_STRING = """
                 <Party>
                     <PartyID>
                         <Identifier>
