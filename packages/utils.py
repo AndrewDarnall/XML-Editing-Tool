@@ -19,7 +19,7 @@ def load_dir(input_dir: str) -> None:
         try:
             # Load the xml file and parse it into a tree structure, saving the root and the structure
             root, tree = load_xml_file(file)
-        except ET.ParserError as e:
+        except ET.ParseError as e:
             print(f" -- Caught exception:\t{e}")
             continue
         # Recursively visit the tree whilst searching for the target node and make the required midifications

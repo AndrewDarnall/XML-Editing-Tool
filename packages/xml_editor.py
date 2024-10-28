@@ -1,6 +1,5 @@
 """ Contains the main functions for the XML-Editor tool """
 
-from sys import argv
 from os.path import abspath, exit
 from typing import Tuple
 import xml.etree.ElementTree as ET
