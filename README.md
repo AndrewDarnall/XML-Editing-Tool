@@ -12,9 +12,25 @@ A simple tool for the domain specific editing of an XML document
 
 ## Requirements
 
-| Software | Version |
-|----------|---------|
-| Python   |`3.10.14`|
+| Software  | Version |
+|-----------|---------|
+| Python    |`3.10.14`|
+| Pip       | `23.3.1`|
+| pre-commit| `2.10.1`|
+
+You can install `pre-commit` to apply the git hooks defined in the `.pre-commit-config.yaml` by either installing it via:
+
+1) `pip` via the command
+
+```bash
+python -m pip install pre-commit==2.10.1
+```
+
+2) package manager such as `apt` for `Debian-based` distributions:
+
+```bash
+apt-get install pre-commit
+```
 
 ---
 

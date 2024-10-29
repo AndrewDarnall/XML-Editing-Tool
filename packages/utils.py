@@ -10,7 +10,8 @@ from packages.xml_editor import replacements_dict
 def load_dir(input_dir: str) -> None:
     """
     load_dir: Sequentially edits all .xml files present in the directory
-    @param input_dir: commandline argument of input target directory where all .xml files are
+    @param input_dir: commandline argument of input target directory
+                    where all .xml files are
     """
 
     for file in listdir(input_dir):
@@ -19,7 +20,9 @@ def load_dir(input_dir: str) -> None:
             # saving the root and the structure
             root, tree = load_xml_file(file)
         except ET.ParseError:
-            print(f" -- Caught exception ETree Parse Exception for file:\t{file}")
+            print(
+                f" -- Caught exception ETree Parse Exception for file:\t{file}"
+            )
             continue
         # Recursively visit the tree whilst searching for the
         # target node and make the required midifications

@@ -6,7 +6,11 @@ from typing import Tuple
 import xml.etree.ElementTree as ET
 
 
-from packages.str_and_type_definitions import ADD_STRING_1, ADD_STRING_2, EDIT_STRING
+from packages.str_and_type_definitions import (
+    ADD_STRING_1,
+    ADD_STRING_2,
+    EDIT_STRING,
+)
 from packages.str_and_type_definitions import ReplacementsDict
 
 
@@ -38,8 +42,8 @@ def load_xml_file(target_file: str) -> Tuple[ET.Element, ET.ElementTree]:
 
 def tree_visit(node: ET.Element, replacements: ReplacementsDict) -> None:
     """
-    tree_visit: Performs a recursive visit of the XML element tree, searching for the target nodes
-                on which to perform the appropriate changes
+    tree_visit: Performs a recursive visit of the XML element tree, searching for the
+                target nodes on which to perform the appropriate changes
 
     @param node: the node to be visited
     @param replacements: the replacement dictionary
@@ -68,7 +72,9 @@ def tree_visit(node: ET.Element, replacements: ReplacementsDict) -> None:
             try:
                 new_node = ET.fromstring(replacements["modification"][1])
             except ET.ParseError:
-                print(" --> Failed to parse the string into xml node: modification")
+                print(
+                    " --> Failed to parse the string into xml node: modification"
+                )
                 EXIT_FAILURE(-1)
 
             child.append(new_node)

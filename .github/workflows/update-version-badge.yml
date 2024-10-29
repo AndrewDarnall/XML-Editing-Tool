@@ -21,7 +21,7 @@ jobs:
         run: |
           # Construct the new badge URL
           BADGE_URL="https://img.shields.io/badge/version-${{ env.LATEST_TAG }}-blue"
-          
+
           # Update the README.md with the new badge URL
           sed -i.bak "s|https://img.shields.io/badge/version-[^ ]*|$BADGE_URL|g" README.md
 
