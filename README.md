@@ -6,7 +6,16 @@
 
 ---
 
-A simple tool for the domain specific editing of an XML document
+This is a simple tool for the domain specific editing of an XML document.
+<br>
+<br>
+The tool takes as input a directory with `.xml` files, and iteratively edits each file
+searching for specific nodes within the tree representation of the tags and replaces
+and add to the hard-coded target nodes.
+<br>
+<br>
+The tool is meant to automate some time-consuming tasks which could be error-prone
+and can be (and should be) handled by a machine.
 
 ---
 
